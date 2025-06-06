@@ -63,7 +63,7 @@ function Skills({ skills }) {
           </div>
         </div>
       )}
-    </section>
+    </motion.section>
   );
 }
 

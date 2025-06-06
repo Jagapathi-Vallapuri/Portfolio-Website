@@ -40,7 +40,7 @@ function ProjectCard({ project }) {
           </a>
         </p>
       */}
-    </article>
+    </motion.article>
   );
 }
 

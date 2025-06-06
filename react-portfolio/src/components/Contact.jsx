@@ -45,7 +45,7 @@ function Contact({ contactInfo }) { // Accept contactInfo as a prop
           </a>
         </p>
       )}
-    </section>
+    </motion.section>
   );
 }
 

@@ -61,9 +61,9 @@ function Extracurricular({ activities }) {
           */}
           {activity.duration && <p><strong>Duration:</strong> {activity.duration}</p>}
           {activity.description && <p className={styles.description}>{cleanDescription(activity.description)}</p>}
-        </article>
+        </motion.article>
       ))}
-    </section>
+    </motion.section>
   );
 }
 

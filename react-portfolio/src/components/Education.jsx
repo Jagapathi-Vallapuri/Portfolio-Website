@@ -37,7 +37,7 @@ function Education({ education }) {
           </>
         )}
       </article>
-    </section>
+    </motion.section>
   );
 }
 
