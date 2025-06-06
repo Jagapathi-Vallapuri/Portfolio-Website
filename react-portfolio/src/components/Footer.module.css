@@ -1,0 +1,25 @@
+.footer {
+    background-color: var(--color-text); /* Dark background */
+    color: var(--color-text-light);
+    text-align: center;
+    padding: var(--spacing-unit-xl) var(--spacing-unit-md);
+    margin-top: var(--spacing-unit-xxl); /* Ensure enough space above footer */
+    font-family: var(--font-secondary);
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8; /* Slightly muted text */
+}
+
+/* Responsive adjustments for Footer */
+@media (max-width: 768px) {
+    .footer {
+        padding: var(--spacing-unit-lg) var(--spacing-unit-sm);
+        margin-top: var(--spacing-unit-xl);
+    }
+    .footer p {
+        font-size: 0.85rem;
+    }
+}

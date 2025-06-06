@@ -1,0 +1,38 @@
+.contactSection {
+    /* Uses global section styling from index.css by default */
+    /* Override or add specific styles if needed */
+    text-align: center; /* Center the content of the contact section */
+}
+
+.contactSection h2 {
+    /* Uses global section h2 styling */
+    margin-bottom: var(--spacing-unit-lg);
+}
+
+.contactSection p {
+    font-family: var(--font-secondary);
+    font-size: 1.1rem; /* Slightly larger for readability */
+    margin-bottom: var(--spacing-unit-md);
+    line-height: 1.8;
+}
+
+.contactSection p strong {
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.contactSection a {
+    color: var(--color-primary); /* Uses global link color */
+    font-weight: 600; /* Make links slightly bolder */
+}
+
+.contactSection a:hover {
+    color: var(--color-primary-dark); /* Uses global link hover color */
+}
+
+/* Responsive adjustments for Contact section */
+@media (max-width: 768px) {
+    .contactSection p {
+        font-size: 1rem;
+    }
+}

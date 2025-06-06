@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
+:root {
+  --font-primary: 'Montserrat', sans-serif; /* For headings */
+  --font-secondary: 'Open Sans', sans-serif; /* For body text */
+
+  --color-primary: #007bff;       /* Blue */
+  --color-primary-dark: #0056b3;  /* Darker blue for hover states */
+  --color-secondary: #6c757d;     /* Grey */
+  --color-accent: #17a2b8;        /* Teal/Cyan for accents */
+
+  --color-text: #212529;          /* Dark grey for text */
+  --color-text-light: #f8f9fa;   /* Light text for dark backgrounds */
+  --color-background: #f8f9fa;   /* Light grey page background */
+  --color-card-bg: #ffffff;       /* White for cards/sections */
+  --color-border: #dee2e6;       /* Light grey for borders */
+
+  --shadow-sm: 0 .125rem .25rem rgba(0,0,0,.075);
+  --shadow-md: 0 .5rem 1rem rgba(0,0,0,.15);
+  --shadow-lg: 0 1rem 3rem rgba(0,0,0,.175);
+
+  --spacing-unit-xs: 0.25rem; /* 4px */
+  --spacing-unit-sm: 0.5rem;  /* 8px */
+  --spacing-unit-md: 1rem;    /* 16px */
+  --spacing-unit-lg: 1.5rem;  /* 24px */
+  --spacing-unit-xl: 2rem;    /* 32px */
+  --spacing-unit-xxl: 3rem;   /* 48px */
+
+  --border-radius-sm: .2rem;
+  --border-radius-md: .3rem;
+}
+
+/* Basic Reset & Global Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-secondary);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  line-height: 1.6;
+  font-size: 16px; /* Base font size */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: var(--spacing-unit-sm);
+}
+
+h1 { font-size: 2.5rem; } /* ~40px */
+h2 { font-size: 2rem; }   /* ~32px */
+h3 { font-size: 1.75rem; }/* ~28px */
+h4 { font-size: 1.5rem; } /* ~24px */
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--spacing-unit-md);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.15s ease-in-out;
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+ul {
+  padding-left: var(--spacing-unit-lg); /* Default padding for unordered lists */
+}
+ul li {
+  margin-bottom: var(--spacing-unit-sm);
+}
+
+/* Main content container - applied in App.jsx or similar */
+.app-container { /* Renamed to avoid conflict with previous .container */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-unit-md);
+}
+
+/* General Section Styling - can be overridden by component modules */
+section {
+  margin-bottom: var(--spacing-unit-xl);
+  padding: var(--spacing-unit-lg);
+  background-color: var(--color-card-bg);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+section h2 { /* Default section heading style */
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-unit-lg);
+  padding-bottom: var(--spacing-unit-sm);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  background-color: #e9ecef;
+  padding: .2em .4em;
+  border-radius: var(--border-radius-sm);
+}
