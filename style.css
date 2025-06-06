@@ -1,0 +1,119 @@
+/* Basic CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    max-width: 960px; /* Max width for centered content */
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 2rem 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.8em;
+    margin-bottom: 0.2em;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+nav {
+    background-color: #444;
+    padding: 1em 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: #555;
+    text-decoration: underline;
+}
+
+section {
+    background: #fff;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+section h2 {
+    font-size: 2em;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+}
+
+article {
+    margin-bottom: 1.5em;
+    padding-bottom: 1em;
+    border-bottom: 1px dashed #eee; /* Separator for articles within sections */
+}
+
+article:last-child {
+    border-bottom: none; /* No border for the last article in a section */
+    padding-bottom: 0;
+}
+
+h3 { /* For titles within articles, like project or job titles */
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    color: #555;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #2980b9;
+}
+
+ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 0.5em;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5em 0;
+    background-color: #333;
+    color: #fff;
+    margin-top: 30px;
+}
