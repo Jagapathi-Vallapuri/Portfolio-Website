@@ -1,0 +1,54 @@
+.skillsSection {
+    /* Uses global section styling */
+    text-align: center; /* Center skill categories */
+}
+
+.skillsSection h2 {
+    /* Uses global section h2 styling */
+}
+
+.skillCategory {
+    margin-bottom: var(--spacing-unit-lg);
+}
+
+.skillCategory strong { /* Category titles: Languages, Technologies, Tools */
+    display: block;
+    font-family: var(--font-primary);
+    font-size: 1.3rem;
+    color: var(--color-primary-dark);
+    margin-bottom: var(--spacing-unit-md);
+}
+
+.skillsContainer { /* Container for individual skill tags/badges */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center tags */
+    gap: var(--spacing-unit-sm);
+}
+
+.skillTag {
+    font-family: var(--font-secondary);
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: var(--spacing-unit-xs) var(--spacing-unit-md);
+    border-radius: var(--border-radius-sm);
+    font-size: 0.95rem;
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+    transition: background-color 0.2s ease;
+}
+
+.skillTag:hover {
+    background-color: var(--color-primary-dark);
+}
+
+/* Responsive adjustments for Skills section */
+@media (max-width: 768px) {
+    .skillCategory strong {
+        font-size: 1.15rem;
+    }
+    .skillTag {
+        font-size: 0.85rem;
+        padding: var(--spacing-unit-xs) var(--spacing-unit-sm);
+    }
+}

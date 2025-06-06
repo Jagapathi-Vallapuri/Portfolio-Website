@@ -1,0 +1,72 @@
+.educationSection {
+    /* Uses global section styling from index.css */
+}
+
+.educationArticle {
+    margin-bottom: var(--spacing-unit-lg);
+    padding: var(--spacing-unit-lg);
+    background-color: var(--color-background); /* Slightly different background for emphasis */
+    border-radius: var(--border-radius-md);
+    border-left: 5px solid var(--color-accent); /* Accent color for article */
+}
+
+.educationArticle:last-child {
+    margin-bottom: 0;
+}
+
+.educationArticle h3 {
+    font-family: var(--font-primary);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-unit-sm);
+    font-size: 1.5rem; /* Adjusted from global h3 for context */
+}
+
+.educationArticle p {
+    margin-bottom: var(--spacing-unit-sm);
+    font-size: 1rem;
+}
+
+.educationArticle p strong {
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.educationArticle em { /* Style for "Relevant Coursework:" */
+    font-weight: 600;
+    color: var(--color-secondary);
+}
+
+.educationArticle ul {
+    list-style: none; /* Remove default if not already done globally */
+    padding-left: 0;
+    margin-top: var(--spacing-unit-sm);
+}
+
+.educationArticle ul li {
+    font-family: var(--font-secondary);
+    margin-bottom: var(--spacing-unit-xs);
+    padding-left: var(--spacing-unit-lg); /* Space for custom bullet */
+    position: relative; /* For custom bullet positioning */
+    font-size: 0.95rem;
+}
+
+.educationArticle ul li::before {
+    content: '▹'; /* Custom bullet */
+    position: absolute;
+    left: var(--spacing-unit-sm); /* Position custom bullet */
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+/* Responsive adjustments for Education section */
+@media (max-width: 768px) {
+    .educationArticle {
+        padding: var(--spacing-unit-md);
+    }
+    .educationArticle h3 {
+        font-size: 1.3rem;
+    }
+    .educationArticle ul li {
+        font-size: 0.9rem;
+    }
+}

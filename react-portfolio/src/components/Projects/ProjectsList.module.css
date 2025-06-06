@@ -1,0 +1,38 @@
+.projectsSection {
+    /* Uses global section styling from index.css */
+    /* Specific overrides if necessary */
+}
+
+.projectsSection h2 {
+    /* Uses global section h2 styling */
+    /* Specific overrides if necessary */
+}
+
+.projectsGrid {
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+    /* Updated to have max 2 columns on larger screens, 1 on smaller */
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-unit-lg);
+    margin-top: var(--spacing-unit-md);
+}
+
+/* Responsive adjustments for ProjectsList */
+@media (max-width: 992px) { /* Medium screens - still 2 columns but minmax could be adjusted if needed */
+    .projectsGrid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Allow flexibility */
+    }
+}
+
+@media (max-width: 768px) { /* Small screens - stack to 1 column */
+    .projectsGrid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-unit-md);
+    }
+}
+
+@media (max-width: 480px) {
+     .projectsGrid {
+        /* Further adjustments for very small screens if needed */
+    }
+}

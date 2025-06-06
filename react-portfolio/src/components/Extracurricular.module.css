@@ -1,0 +1,58 @@
+.extracurricularSection {
+    /* Uses global section styling */
+}
+
+.extracurricularSection h2 {
+    /* Uses global section h2 styling */
+}
+
+.activityArticle {
+    background-color: var(--color-background); /* Slightly different from section bg */
+    padding: var(--spacing-unit-lg);
+    margin-bottom: var(--spacing-unit-lg);
+    border-radius: var(--border-radius-md);
+    border-left: 5px solid var(--color-accent); /* Use accent color */
+    box-shadow: var(--shadow-sm);
+}
+
+.activityArticle:last-child {
+    margin-bottom: 0;
+}
+
+.activityArticle h3 { /* For 'organization' which is currently the role in JSON */
+    font-family: var(--font-primary);
+    font-size: 1.4rem; /* Adjusted from global h3 */
+    color: var(--color-primary-dark);
+    margin-bottom: var(--spacing-unit-xs);
+}
+
+.activityArticle p {
+    font-family: var(--font-secondary);
+    margin-bottom: var(--spacing-unit-sm);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.activityArticle p strong {
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.activityArticle .description {
+    /* font-style: italic; */ /* Removed italic, can be too much */
+    color: #555; /* Slightly lighter text for description */
+    font-size: 0.95rem;
+}
+
+/* Responsive adjustments for Extracurricular section */
+@media (max-width: 768px) {
+    .activityArticle {
+        padding: var(--spacing-unit-md);
+    }
+    .activityArticle h3 {
+        font-size: 1.25rem;
+    }
+    .activityArticle p {
+        font-size: 0.9rem;
+    }
+}

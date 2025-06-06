@@ -1,0 +1,47 @@
+.navigation {
+    background-color: var(--color-text); /* Dark background for contrast */
+    padding: var(--spacing-unit-md) 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure it's above other content */
+    box-shadow: var(--shadow-md);
+}
+
+.navigation a {
+    font-family: var(--font-primary);
+    color: var(--color-text-light);
+    margin: 0 var(--spacing-unit-md);
+    text-decoration: none;
+    font-weight: 700; /* Bolder for nav links */
+    padding: var(--spacing-unit-sm) var(--spacing-unit-md);
+    border-radius: var(--border-radius-sm);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navigation a:hover,
+.navigation a:focus { /* Added focus state */
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    text-decoration: none;
+}
+
+/* Responsive adjustments for Navigation */
+@media (max-width: 768px) {
+    .navigation {
+        padding: var(--spacing-unit-sm) 0;
+        position: static; /* Remove sticky on mobile if it takes too much space or causes layout issues */
+    }
+    .navigation a {
+        display: block; /* Stack links vertically */
+        margin: var(--spacing-unit-sm) auto; /* Center links */
+        padding: var(--spacing-unit-md); /* Larger touch target */
+        width: 80%; /* Control width of stacked links */
+    }
+}
+
+@media (max-width: 480px) {
+    .navigation a {
+        width: 90%; /* Wider links on very small screens */
+    }
+}

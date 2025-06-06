@@ -1,0 +1,62 @@
+.projectCard {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-unit-lg);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column; /* Ensure content stacks vertically */
+    height: 100%; /* Make cards in a row equal height if container is flex/grid */
+}
+
+.projectCard:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-5px); /* Slight lift effect */
+}
+
+.projectCard h3 {
+    font-family: var(--font-primary);
+    font-size: 1.4rem; /* Adjusted from global h3 */
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-unit-sm);
+}
+
+.projectCard p {
+    font-family: var(--font-secondary);
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-unit-sm);
+    line-height: 1.5;
+    flex-grow: 1; /* Allows description to take up space pushing GitHub link down if card is flex column */
+}
+
+.projectCard p strong { /* For labels like Technologies, Duration */
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.projectCard .description { /* Class for description paragraph if needed for specific styling */
+    /* font-size: 0.9rem; /* Example if different from other p */
+    /* color: #555; */
+}
+
+.projectCard .githubInfo { /* Class for the GitHub info paragraph */
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin-top: auto; /* Pushes to the bottom if card is flex column */
+    padding-top: var(--spacing-unit-sm); /* Space above it */
+}
+
+/* Responsive adjustments for ProjectCard */
+@media (max-width: 768px) {
+    .projectCard {
+        padding: var(--spacing-unit-md);
+    }
+    .projectCard h3 {
+        font-size: 1.25rem;
+    }
+    .projectCard p {
+        font-size: 0.9rem;
+    }
+}
