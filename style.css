@@ -1,3 +1,23 @@
+/* CSS Variables */
+:root {
+    --primary-color: #2980b9; /* Darker blue */
+    --secondary-color: #27ae60; /* Darker green */
+    --text-color: #333333;
+    --light-text-color: #ecf0f1; /* For dark backgrounds */
+    --background-color: #ecf0f1; /* Light grey */
+    --card-background: #ffffff;
+    --header-background: #2c3e50; /* Dark slate blue */
+    --nav-background: #34495e;   /* Slightly lighter slate blue */
+    --footer-background: #2c3e50;
+    --border-color: #bdc3c7;     /* Light silver */
+    --shadow-color: rgba(0,0,0,0.1);
+
+    --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-family-headings: "Helvetica Neue", Helvetica, Arial, sans-serif; /* Example */
+
+    --spacing-unit: 1rem; /* approx 16px if root font-size is 16px */
+}
+
 /* Basic CSS Reset */
 * {
     margin: 0;
@@ -5,115 +25,326 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth; /* For native smooth scrolling, affects direct #hash links too */
+}
+
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-    padding: 20px;
+    font-family: var(--font-family-sans);
+    line-height: 1.7;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding-top: var(--spacing-unit); /* Add padding to the top */
 }
 
 .container {
-    width: 80%;
+    width: 90%; /* Responsive width */
     margin: auto;
-    overflow: hidden;
-    max-width: 960px; /* Max width for centered content */
+    overflow: hidden; /* Clear floats */
+    max-width: 1100px; /* Max width for centered content */
+    padding: 0 var(--spacing-unit);
 }
 
+/* Header Styles */
 header {
-    background: #333;
-    color: #fff;
-    padding: 2rem 0;
+    background: var(--header-background);
+    color: var(--light-text-color);
+    padding: calc(var(--spacing-unit) * 2.5) 0;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-unit);
+    border-bottom: 5px solid var(--primary-color);
 }
 
 header h1 {
-    font-size: 2.8em;
-    margin-bottom: 0.2em;
+    font-family: var(--font-family-headings);
+    font-size: 3em;
+    margin-bottom: 0.25em;
+    letter-spacing: 1px;
+    font-weight: 700;
 }
 
-header p {
-    font-size: 1.2em;
+header p { /* Subtitle */
+    font-size: 1.3em;
+    font-weight: 300;
 }
 
+/* Navigation Bar Styles */
 nav {
-    background-color: #444;
-    padding: 1em 0;
+    background-color: var(--nav-background);
+    padding: var(--spacing-unit) 0;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    position: sticky; /* Sticky navigation */
+    top: 0;
+    z-index: 1000;
 }
 
 nav a {
-    color: #fff;
-    margin: 0 15px;
+    color: var(--light-text-color);
+    margin: 0 var(--spacing-unit);
     text-decoration: none;
-    font-weight: bold;
-    padding: 5px 10px;
+    font-weight: 500; /* Slightly less bold */
+    padding: 0.5em 1em;
     border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-nav a:hover {
-    background-color: #555;
-    text-decoration: underline;
+nav a:hover, nav a:focus {
+    background-color: var(--primary-color);
+    color: var(--light-text-color); /* Ensure text color remains light on hover */
+    text-decoration: none; /* Remove underline from hover if not desired */
 }
 
+/* Section Styling */
 section {
-    background: #fff;
-    padding: 25px;
-    margin-bottom: 20px;
+    background: var(--card-background);
+    padding: calc(var(--spacing-unit) * 1.8);
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px var(--shadow-color);
+    border-left: 5px solid var(--secondary-color); /* Accent border */
 }
 
 section h2 {
-    font-size: 2em;
-    color: #333;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 0.5em;
+    font-family: var(--font-family-headings);
+    font-size: 2.2em;
+    color: var(--header-background); /* Darker color for section titles */
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 0.4em;
     margin-bottom: 1em;
+    letter-spacing: 0.5px;
+    font-weight: 600;
 }
 
+/* Article Styling (used in Education, Projects, Extracurricular) */
 article {
-    margin-bottom: 1.5em;
-    padding-bottom: 1em;
-    border-bottom: 1px dashed #eee; /* Separator for articles within sections */
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+    padding-bottom: var(--spacing-unit);
 }
 
-article:last-child {
-    border-bottom: none; /* No border for the last article in a section */
-    padding-bottom: 0;
+article:not(:last-child) { /* Separator for articles, except the last one */
+    border-bottom: 1px solid var(--border-color);
 }
 
-h3 { /* For titles within articles, like project or job titles */
-    font-size: 1.5em;
+
+article h3 { /* For titles within articles */
+    font-size: 1.6em;
     margin-bottom: 0.5em;
-    color: #555;
+    color: var(--primary-color);
+    font-weight: 600;
 }
 
+article p strong { /* Make labels like "Technologies:", "Duration:" slightly more distinct */
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+/* Project Section - Card Layout */
+section#projects {
+    border-left-color: var(--primary-color); /* Different accent for projects */
+}
+
+section#projects .projects-grid { /* New class to wrap articles for grid layout */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: calc(var(--spacing-unit) * 1.5);
+}
+
+section#projects article { /* Card styling for projects */
+    background: var(--card-background); /* Ensure cards have background if section bg is different */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: var(--spacing-unit);
+    box-shadow: 0 4px 8px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* For better internal alignment if needed */
+    flex-direction: column;
+    border-bottom: none; /* Remove article separator if using cards */
+}
+
+section#projects article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+section#projects article h3 { /* Project titles */
+    font-size: 1.4em; /* Slightly smaller for cards */
+    color: var(--primary-color);
+}
+
+section#projects article p {
+    font-size: 0.95em; /* Slightly smaller text within cards */
+    margin-bottom: 0.5em;
+}
+section#projects article p strong{
+    font-weight: 700; /* Make labels more prominent */
+}
+
+
+/* Links */
 a {
-    color: #3498db;
+    color: var(--primary-color);
     text-decoration: none;
+    transition: color 0.2s ease-in-out;
 }
 
-a:hover {
+a:hover, a:focus {
     text-decoration: underline;
-    color: #2980b9;
+    color: var(--secondary-color); /* Change hover color */
 }
 
+/* Lists (e.g., Coursework) */
 ul {
-    list-style: disc;
-    padding-left: 20px;
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
 }
 
-li {
-    margin-bottom: 0.5em;
+ul li {
+    margin-bottom: 0.6em;
+    padding-left: 1.2em;
+    position: relative;
 }
 
+ul li::before { /* Custom bullet */
+    content: '▹'; /* Arrow or other symbol */
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+
+/* Footer Styles */
 footer {
     text-align: center;
-    padding: 1.5em 0;
-    background-color: #333;
-    color: #fff;
-    margin-top: 30px;
+    padding: calc(var(--spacing-unit) * 1.5) 0;
+    background-color: var(--footer-background);
+    color: var(--light-text-color);
+    margin-top: calc(var(--spacing-unit) * 2);
+    font-size: 0.9em;
+}
+
+/* Scroll to Top Button Styles */
+#scrollToTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+#scrollToTopBtn:hover {
+    background-color: var(--secondary-color); /* Use secondary color for hover */
+}
+
+/* Fade-in Animation Styles */
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(30px); /* Start slightly lower */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-element.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Responsive Design - Media Queries */
+
+/* Medium screens (tablets) */
+@media (max-width: 992px) {
+    .container {
+        width: 90%;
+    }
+    header h1 {
+        font-size: 2.5em;
+    }
+    section h2 {
+        font-size: 1.8em;
+    }
+    article h3 {
+        font-size: 1.3em;
+    }
+    section#projects .projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust card size */
+    }
+}
+
+/* Small screens (mobile phones) */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* Reduce body padding */
+        line-height: 1.6;
+    }
+    .container {
+        width: 95%; /* Fuller width */
+        padding: 0 calc(var(--spacing-unit) * 0.5);
+    }
+    nav { /* Adjust sticky nav for mobile if it causes issues, or ensure body padding accounts for it */
+        padding: var(--spacing-unit) * 0.5;
+        /* position: static; /* Example: disable sticky on mobile if it takes too much space */
+    }
+    header h1 {
+        font-size: 2em;
+    }
+    header p {
+        font-size: 1.1em;
+    }
+    nav a {
+        display: block; /* Stack nav links */
+        margin: 0.5em 0;
+        padding: 0.8em;
+    }
+    section {
+        padding: var(--spacing-unit);
+        margin-bottom: var(--spacing-unit);
+    }
+    section h2 {
+        font-size: 1.6em;
+    }
+    article h3 {
+        font-size: 1.2em;
+    }
+    section#projects .projects-grid {
+        grid-template-columns: 1fr; /* Stack project cards vertically */
+        gap: var(--spacing-unit);
+    }
+    ul {
+        padding-left: 5px; /* Adjust list padding for small screens */
+    }
+    ul li {
+        padding-left: 1em; /* Adjust custom bullet position */
+    }
+    #scrollToTopBtn { /* Adjust button size/position for mobile */
+        padding: 10px;
+        font-size: 16px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+    header p {
+        font-size: 1em;
+    }
+    section h2 {
+        font-size: 1.4em;
+    }
+    article h3 {
+        font-size: 1.1em;
+    }
 }
