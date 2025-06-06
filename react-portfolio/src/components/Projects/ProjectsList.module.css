@@ -1,38 +1,96 @@
 .projectsSection {
-    /* Uses global section styling from index.css */
-    /* Specific overrides if necessary */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.projectsSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent, #e74c3c), var(--color-primary));
+    border-radius: 20px 20px 0 0;
 }
 
 .projectsSection h2 {
-    /* Uses global section h2 styling */
-    /* Specific overrides if necessary */
+    margin-bottom: 2.5rem;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent, #e74c3c));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    position: relative;
+}
+
+.projectsSection h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent, #e74c3c));
+    border-radius: 2px;
 }
 
 .projectsGrid {
     display: grid;
-    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
-    /* Updated to have max 2 columns on larger screens, 1 on smaller */
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-unit-lg);
-    margin-top: var(--spacing-unit-md);
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 /* Responsive adjustments for ProjectsList */
-@media (max-width: 992px) { /* Medium screens - still 2 columns but minmax could be adjusted if needed */
+@media (max-width: 992px) {
+    .projectsSection {
+        padding: 2.5rem 2rem;
+    }
+    
     .projectsGrid {
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Allow flexibility */
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 1.5rem;
     }
 }
 
-@media (max-width: 768px) { /* Small screens - stack to 1 column */
+@media (max-width: 768px) {
+    .projectsSection {
+        padding: 2rem 1.5rem;
+        margin: 1rem 0;
+    }
+    
+    .projectsSection h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
     .projectsGrid {
         grid-template-columns: 1fr;
-        gap: var(--spacing-unit-md);
+        gap: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
-     .projectsGrid {
-        /* Further adjustments for very small screens if needed */
+    .projectsSection {
+        padding: 1.5rem 1rem;
+        border-radius: 15px;
+    }
+    
+    .projectsSection h2 {
+        font-size: 1.8rem;
+    }
+    
+    .projectsGrid {
+        gap: 1rem;
     }
 }

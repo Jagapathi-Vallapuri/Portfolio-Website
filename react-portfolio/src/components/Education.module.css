@@ -1,13 +1,80 @@
 .educationSection {
-    /* Uses global section styling from index.css */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.educationSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent, #4ecdc4), var(--color-primary));
+    border-radius: 20px 20px 0 0;
+}
+
+.educationSection h2 {
+    margin-bottom: 2.5rem;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent, #4ecdc4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    position: relative;
+}
+
+.educationSection h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent, #4ecdc4));
+    border-radius: 2px;
 }
 
 .educationArticle {
-    margin-bottom: var(--spacing-unit-lg);
-    padding: var(--spacing-unit-lg);
-    background-color: var(--color-background); /* Slightly different background for emphasis */
-    border-radius: var(--border-radius-md);
-    border-left: 5px solid var(--color-accent); /* Accent color for article */
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.educationArticle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--color-primary), var(--color-accent, #4ecdc4));
+    transition: width 0.3s ease;
+}
+
+.educationArticle:hover::before {
+    width: 100%;
+    opacity: 0.05;
+}
+
+.educationArticle:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 .educationArticle:last-child {
@@ -17,56 +84,163 @@
 .educationArticle h3 {
     font-family: var(--font-primary);
     color: var(--color-primary);
-    margin-bottom: var(--spacing-unit-sm);
-    font-size: 1.5rem; /* Adjusted from global h3 for context */
-}
-
-.educationArticle p {
-    margin-bottom: var(--spacing-unit-sm);
-    font-size: 1rem;
-}
-
-.educationArticle p strong {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
     font-weight: 700;
+    position: relative;
+}
+
+.educationArticle h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--color-accent, #4ecdc4);
+    border-radius: 1px;
+}
+
+.degreeInfo {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+.degreeDetails p {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
     color: var(--color-text);
 }
 
-.educationArticle em { /* Style for "Relevant Coursework:" */
-    font-weight: 600;
-    color: var(--color-secondary);
-}
-
-.educationArticle ul {
-    list-style: none; /* Remove default if not already done globally */
-    padding-left: 0;
-    margin-top: var(--spacing-unit-sm);
-}
-
-.educationArticle ul li {
-    font-family: var(--font-secondary);
-    margin-bottom: var(--spacing-unit-xs);
-    padding-left: var(--spacing-unit-lg); /* Space for custom bullet */
-    position: relative; /* For custom bullet positioning */
-    font-size: 0.95rem;
-}
-
-.educationArticle ul li::before {
-    content: '▹'; /* Custom bullet */
-    position: absolute;
-    left: var(--spacing-unit-sm); /* Position custom bullet */
+.degreeDetails p strong {
+    font-weight: 700;
     color: var(--color-primary);
-    font-weight: bold;
+}
+
+.cgpaBox {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent, #4ecdc4));
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    min-width: 120px;
+}
+
+.cgpaBox .cgpaLabel {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+    opacity: 0.9;
+}
+
+.cgpaBox .cgpaValue {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.courseworkSection {
+    margin-top: 1.5rem;
+}
+
+.courseworkTitle {
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.courseworkGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0.8rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.courseworkGrid li {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 1rem;
+    border-radius: 12px;
+    font-family: var(--font-secondary);
+    font-size: 0.95rem;
+    color: var(--color-text);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.courseworkGrid li::before {
+    content: '📚';
+    margin-right: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.courseworkGrid li:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive adjustments for Education section */
 @media (max-width: 768px) {
+    .educationSection {
+        padding: 2rem 1.5rem;
+        margin: 1rem 0;
+    }
+    
+    .educationSection h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
     .educationArticle {
-        padding: var(--spacing-unit-md);
+        padding: 1.5rem;
     }
+    
     .educationArticle h3 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
-    .educationArticle ul li {
+    
+    .degreeInfo {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .cgpaBox {
+        justify-self: start;
+        min-width: auto;
+    }
+    
+    .courseworkGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .educationSection {
+        padding: 1.5rem 1rem;
+        border-radius: 15px;
+    }
+    
+    .educationSection h2 {
+        font-size: 1.8rem;
+    }
+    
+    .educationArticle {
+        padding: 1.25rem;
+    }
+    
+    .courseworkGrid li {
+        padding: 0.8rem;
         font-size: 0.9rem;
     }
 }

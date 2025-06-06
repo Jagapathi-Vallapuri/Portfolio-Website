@@ -4,7 +4,11 @@ import styles from './Footer.module.css';
 function Footer({ name }) {
   return (
     <footer className={styles.footer}>
-      <p>&copy; {new Date().getFullYear()} {name}. All rights reserved.</p>
+      <div className={styles.footerContent}>
+        <div className={styles.footerDivider}></div>
+        <p>&copy; <span className={styles.footerYear}>{new Date().getFullYear()}</span> {name}. All rights reserved.</p>
+        <div className={styles.decorativePattern}></div>
+      </div>
     </footer>
   );
 }

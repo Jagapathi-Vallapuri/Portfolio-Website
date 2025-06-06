@@ -4,8 +4,11 @@ import styles from './Header.module.css';
 function Header({ name, subtitle }) {
   return (
     <header className={styles.header}>
-      <h1>{name}</h1>
-      {subtitle && <p>{subtitle}</p>}
+      <div className={styles.decorativeElements}></div>
+      <div className={styles.headerContent}>
+        <h1>{name}</h1>
+        {subtitle && <p>{subtitle}</p>}
+      </div>
     </header>
   );
 }

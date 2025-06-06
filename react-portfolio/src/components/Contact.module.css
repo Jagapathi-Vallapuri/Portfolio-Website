@@ -1,38 +1,173 @@
 .contactSection {
-    /* Uses global section styling from index.css by default */
-    /* Override or add specific styles if needed */
-    text-align: center; /* Center the content of the contact section */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin: 2rem 0;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.contactSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent, #ff6b6b), var(--color-primary));
+    border-radius: 20px 20px 0 0;
 }
 
 .contactSection h2 {
-    /* Uses global section h2 styling */
-    margin-bottom: var(--spacing-unit-lg);
+    margin-bottom: 2.5rem;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent, #ff6b6b));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
 }
 
-.contactSection p {
+.contactSection h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent, #ff6b6b));
+    border-radius: 2px;
+}
+
+.contactInfo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contactItem {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.contactItem::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent, #ff6b6b));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.contactItem:hover::before {
+    transform: scaleX(1);
+}
+
+.contactItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.contactItem p {
     font-family: var(--font-secondary);
-    font-size: 1.1rem; /* Slightly larger for readability */
-    margin-bottom: var(--spacing-unit-md);
-    line-height: 1.8;
-}
-
-.contactSection p strong {
-    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0;
+    line-height: 1.6;
     color: var(--color-text);
 }
 
-.contactSection a {
-    color: var(--color-primary); /* Uses global link color */
-    font-weight: 600; /* Make links slightly bolder */
+.contactItem strong {
+    font-weight: 700;
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.contactSection a:hover {
-    color: var(--color-primary-dark); /* Uses global link hover color */
+.contactItem a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.contactItem a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent, #ff6b6b));
+    transition: width 0.3s ease;
+}
+
+.contactItem a:hover {
+    color: var(--color-primary);
+    transform: translateY(-1px);
+}
+
+.contactItem a:hover::after {
+    width: 100%;
 }
 
 /* Responsive adjustments for Contact section */
 @media (max-width: 768px) {
-    .contactSection p {
+    .contactSection {
+        padding: 2rem 1.5rem;
+        margin: 1rem 0;
+    }
+    
+    .contactSection h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .contactInfo {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .contactItem {
+        padding: 1.25rem;
+    }
+    
+    .contactItem p {
         font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contactSection {
+        padding: 1.5rem 1rem;
+        border-radius: 15px;
+    }
+    
+    .contactSection h2 {
+        font-size: 1.8rem;
+    }
+    
+    .contactItem {
+        padding: 1rem;
     }
 }

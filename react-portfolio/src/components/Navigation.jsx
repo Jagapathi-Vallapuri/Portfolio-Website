@@ -9,14 +9,16 @@ function Navigation() {
       targetElement.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
+  
   return (
     <nav className={styles.navigation}>
-      <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact</a>
-      <a href="#education" onClick={(e) => handleNavClick(e, 'education')}>Education</a>
-      <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>Projects</a>
-      <a href="#technical-skills" onClick={(e) => handleNavClick(e, 'technical-skills')}>Skills</a>
-      <a href="#extracurricular" onClick={(e) => handleNavClick(e, 'extracurricular')}>Extracurricular</a>
+      <div className={styles.navContainer}>
+        <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')}>Contact</a>
+        <a href="#education" onClick={(e) => handleNavClick(e, 'education')}>Education</a>
+        <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>Projects</a>
+        <a href="#technical-skills" onClick={(e) => handleNavClick(e, 'technical-skills')}>Skills</a>
+        <a href="#extracurricular" onClick={(e) => handleNavClick(e, 'extracurricular')}>Extracurricular</a>
+      </div>
     </nav>
   );
 }

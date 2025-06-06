@@ -1,58 +1,210 @@
 .extracurricularSection {
-    /* Uses global section styling */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.extracurricularSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent, #f39c12), var(--color-primary));
+    border-radius: 20px 20px 0 0;
 }
 
 .extracurricularSection h2 {
-    /* Uses global section h2 styling */
+    margin-bottom: 2.5rem;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent, #f39c12));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    position: relative;
+}
+
+.extracurricularSection h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent, #f39c12));
+    border-radius: 2px;
 }
 
 .activityArticle {
-    background-color: var(--color-background); /* Slightly different from section bg */
-    padding: var(--spacing-unit-lg);
-    margin-bottom: var(--spacing-unit-lg);
-    border-radius: var(--border-radius-md);
-    border-left: 5px solid var(--color-accent); /* Use accent color */
-    box-shadow: var(--shadow-sm);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.activityArticle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--color-primary), var(--color-accent, #f39c12));
+    transition: width 0.3s ease;
+}
+
+.activityArticle:hover::before {
+    width: 100%;
+    opacity: 0.05;
+}
+
+.activityArticle:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
 .activityArticle:last-child {
     margin-bottom: 0;
 }
 
-.activityArticle h3 { /* For 'organization' which is currently the role in JSON */
-    font-family: var(--font-primary);
-    font-size: 1.4rem; /* Adjusted from global h3 */
-    color: var(--color-primary-dark);
-    margin-bottom: var(--spacing-unit-xs);
+.activityHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
 }
 
-.activityArticle p {
+.activityIcon {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent, #f39c12));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.activityIcon::before {
+    content: '🏆';
+}
+
+.activityInfo h3 {
+    font-family: var(--font-primary);
+    font-size: 1.6rem;
+    color: var(--color-primary);
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+}
+
+.activityInfo .duration {
     font-family: var(--font-secondary);
-    margin-bottom: var(--spacing-unit-sm);
+    font-size: 1rem;
+    color: var(--color-text);
+    margin: 0;
+    opacity: 0.8;
+}
+
+.activityInfo .duration strong {
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.description {
+    margin-top: 1.5rem;
+}
+
+.description ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.description li {
+    font-family: var(--font-secondary);
     font-size: 1rem;
     line-height: 1.7;
-}
-
-.activityArticle p strong {
-    font-weight: 700;
     color: var(--color-text);
+    margin-bottom: 0.8rem;
+    padding-left: 2rem;
+    position: relative;
 }
 
-.activityArticle .description {
-    /* font-style: italic; */ /* Removed italic, can be too much */
-    color: #555; /* Slightly lighter text for description */
-    font-size: 0.95rem;
+.description li::before {
+    content: '✨';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent, #f39c12);
+    font-size: 1.2rem;
+}
+
+.description li:hover {
+    transform: translateX(5px);
+    transition: transform 0.2s ease;
 }
 
 /* Responsive adjustments for Extracurricular section */
 @media (max-width: 768px) {
+    .extracurricularSection {
+        padding: 2rem 1.5rem;
+        margin: 1rem 0;
+    }
+    
+    .extracurricularSection h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
     .activityArticle {
-        padding: var(--spacing-unit-md);
+        padding: 1.5rem;
     }
-    .activityArticle h3 {
-        font-size: 1.25rem;
+    
+    .activityHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
     }
-    .activityArticle p {
+    
+    .activityInfo h3 {
+        font-size: 1.4rem;
+    }
+    
+    .description li {
         font-size: 0.9rem;
+        padding-left: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .extracurricularSection {
+        padding: 1.5rem 1rem;
+        border-radius: 15px;
+    }
+    
+    .extracurricularSection h2 {
+        font-size: 1.8rem;
+    }
+    
+    .activityArticle {
+        padding: 1.25rem;
+    }
+    
+    .activityInfo h3 {
+        font-size: 1.3rem;
+    }
+    
+    .description li {
+        font-size: 0.85rem;
     }
 }
