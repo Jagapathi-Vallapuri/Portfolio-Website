@@ -12,14 +12,6 @@ function ProjectCard({ project }) {
     return null;
   }
 
-  // Clean up description: remove leading '– ' and join parts if needed.
-  const cleanedDescription = project.description
-    .split('– ')
-    .map(part => part.trim())
-    .filter(part => part) // Remove empty strings that might result from splitting
-    .join('. ') + (project.description.endsWith('.') || project.description.endsWith('– ') ? '' : '.');
-
-
   return (
     <motion.article
       className={styles.projectCard}
@@ -31,15 +23,18 @@ function ProjectCard({ project }) {
       <h3>{project.title}</h3>
       {project.technologies && <p><strong>Technologies:</strong> {project.technologies}</p>}
       {project.duration && <p><strong>Duration:</strong> {project.duration}</p>}
-      {cleanedDescription && <p className={styles.description}>{cleanedDescription}</p>}
+      
+      {project.description && project.description.length > 0 && (
+        <div className={styles.description}>
+          <ul>
+            {project.description.map((point, index) => (
+              <li key={index}>{point}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+      
       {project.github && <p><strong>GitHub:</strong> {project.github}</p>}
-      {/* If project.github were a full URL, it would be:
-        <p className={styles.githubLink}>
-          <a href={project.github} target="_blank" rel="noopener noreferrer">
-            View on GitHub
-          </a>
-        </p>
-      */}
     </motion.article>
   );
 }
